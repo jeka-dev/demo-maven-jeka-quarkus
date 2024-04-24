@@ -58,6 +58,9 @@ To edit it conveniently in Intellij, execute :
 ./jeka intellij: iml
 ```
 
+> [!TIP]
+> You can add any public method you want here, they will be executable directly by executing  : `jeka myMethodName`.
+
 ## Run any Maven command
 
 Any Maven command can be wrapped by JeKa. Just execute commands as `jeka mvn mvnArgs="clean compile ..."`.
