@@ -47,7 +47,7 @@ Git repo (no need to clone manually).
 jeka -r https://github.com/jeka-dev/demo-maven-jeka-quarkus.git -p 
 ```
 
-This command can be run from any location on your host machine. The initial execution may take longer due to the 
+This command can be run from any location on the host machine. The initial execution may take longer due to the 
 compilation process. However, following runs will be as fast as lightning.
 
 ## Deal in IDE
@@ -57,3 +57,7 @@ To edit it conveniently in Intellij, execute :
 ```shell
 ./jeka intellij: iml
 ```
+
+## Run any Maven command
+
+Any Maven command can be wrapped by JeKa. Just execute commands as `jeka mvn mvnArgs="clean compile ..."`.
