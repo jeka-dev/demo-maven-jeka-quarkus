@@ -50,7 +50,7 @@ jeka -r https://github.com/jeka-dev/demo-maven-jeka-quarkus.git -p
 This command can be run from any location on the host machine. The initial execution may take longer due to the 
 compilation process. However, following runs will be as fast as lightning.
 
-## Deal in IDE
+## Deal with IDE
 
 The setup and build phase are coded in [jeka-src/Script.java file](jeka-src/Script.java).
 To edit it conveniently in Intellij, execute :
