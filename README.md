@@ -27,7 +27,7 @@ This will produce the native Quarkus image, ready to run.
 For this, JeKa :
 - Downloads needed JDK and JeKa version if needed
 - Sets the relevant environment variables
-- Executes the  `mvnw clean package -Pnative` *Mavenµ command.
+- Executes the  `mvnw clean package -Pnative` *Maven* command.
 
 Once built, you can execute the native image by executing :
 ```shell
