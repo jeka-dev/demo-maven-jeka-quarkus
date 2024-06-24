@@ -8,12 +8,12 @@ This project consists in a native web app, that provides a GUI for managing a ba
 
 ![screenshot.png](./screenshot.png)
 
-Initially, users that wanted to build and run this project had to fulfill some prerequisites, as installing a proper 
+Initially, users that wanted to build and run this project with *Maven*, had to fulfill some prerequisites, as installing a proper 
 Graalvm JDK and setting needed environment variables.
 
 Jeka comes to the rescue by providing full portability : 
-  - it handles JDK installation if missing
-  - It sets proper environment variables prior delegating the build to Maven
+  - By handling JDK installation if missing
+  - By setting proper environment variables prior delegating the build to Maven
 
 ## Build and execute from anywhere
 
@@ -24,9 +24,10 @@ At root of the project, just execute :
 ./jeka build
 ```
 This will produce the native Quarkus image, ready to run.
-For this, JeKa does :
-- Download needed JDK and JeKa version if needed
-- Execute the Maven command `mvnw clean package -Pnative`, settings the relevant environment variables.
+For this, JeKa :
+- Downloads needed JDK and JeKa version if needed
+- Sets the relevant environment variables
+- Executes the  `mvnw clean package -Pnative` *Maven* command.
 
 Once built, you can execute the native image by executing :
 ```shell
@@ -52,7 +53,7 @@ compilation process. However, following runs will be as fast as lightning.
 
 ## Deal with IDE
 
-The setup and build phase are coded in [jeka-src/Script.java file](jeka-src/Script.java).
+The setup and build phases are coded in [jeka-src/Script.java file](jeka-src/Script.java).
 To edit it conveniently in Intellij, execute :
 ```shell
 ./jeka intellij: iml
