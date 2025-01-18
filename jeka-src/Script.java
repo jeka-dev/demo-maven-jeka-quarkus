@@ -37,6 +37,7 @@ class Script extends KBean {
         String newPath =  graalvmHome.resolve("bin") + File.pathSeparator + System.getenv("PATH");
         JkProcess.ofWinOrUx("mvnw.cmd", "./mvnw")
                 .addParamsAsCmdLine(mvnArguments)
+                .addParamsIf(System.getProperties().containsKey("jeka.test.skip"), "-Dmaven.test.skip=true")
                 .setWorkingDir(getBaseDir())
                 .setEnv("JAVA_HOME", graalvmHome.toString())
                 .setEnv("GRAALVM_HOME", graalvmHome.toString())

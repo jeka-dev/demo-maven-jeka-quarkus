@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project>
+<project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.jeka-work/jeka-src-classes/.idea/jeka-src.iml" filepath="$PROJECT_DIR$/.jeka-work/jeka-src-classes/.idea/jeka-src.iml"/>
-      <module fileurl="file://$PROJECT_DIR$/jeka-src/.idea/jeka-src.iml" filepath="$PROJECT_DIR$/jeka-src/.idea/jeka-src.iml"/>
+      <module fileurl="file://$PROJECT_DIR$/jeka-src/.idea/jeka-src.iml" filepath="$PROJECT_DIR$/jeka-src/.idea/jeka-src.iml" />
     </modules>
-  </component></project>
+  </component>
+</project>
