@@ -11,9 +11,9 @@ This project consists in a native web app, that provides a GUI for managing a ba
 Initially, users that wanted to build and run this project with *Maven*, had to fulfill some prerequisites, as installing a proper 
 Graalvm JDK and setting needed environment variables.
 
-Jeka comes to the rescue by providing full portability : 
-  - By handling JDK installation if missing
-  - By setting proper environment variables prior delegating the build to Maven
+Jeka comes to the rescue by providing full portability: 
+  - Installation of proper JDK if missing.
+  - Set proper environment variables prior delegating the build to Maven
 
 ## Build and execute from anywhere
 
