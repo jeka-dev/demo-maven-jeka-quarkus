@@ -2,6 +2,7 @@ import dev.jeka.core.api.file.JkPathTree;
 import dev.jeka.core.api.system.JkLocator;
 import dev.jeka.core.api.system.JkLog;
 import dev.jeka.core.api.system.JkProcess;
+import dev.jeka.core.api.utils.JkUtilsJdk;
 import dev.jeka.core.tool.JkConstants;
 import dev.jeka.core.tool.JkDoc;
 import dev.jeka.core.tool.KBean;
@@ -30,10 +31,7 @@ class Script extends KBean {
 
     private void mvn(String mvnArguments) {
         JkLog.info("Executing mvn " + mvnArguments);
-        String distrib = getRunbase().getProperties().get("jeka.java.distrib", "graalvm");
-        String javaVersion = getRunbase().getProperties().get("jeka.java.version", "22");
-        String distribFolder = distrib + "-" + javaVersion;
-        Path graalvmHome = JkLocator.getCacheDir().resolve("jdks").resolve(distribFolder);
+        Path graalvmHome = JkUtilsJdk.getJdk("graalvm", "22");
         String newPath =  graalvmHome.resolve("bin") + File.pathSeparator + System.getenv("PATH");
         JkProcess.ofWinOrUx("mvnw.cmd", "./mvnw")
                 .addParamsAsCmdLine(mvnArguments)
