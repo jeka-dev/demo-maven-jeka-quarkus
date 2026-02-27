@@ -30,7 +30,7 @@ class Script extends KBean {
 
     public void build2() {
         cleanOutput();
-        maven.wrapPack();
+        maven.wrapPackage();
     }
 
     @JkDoc("Execute Maven with ")
