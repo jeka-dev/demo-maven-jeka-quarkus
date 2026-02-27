@@ -1,11 +1,12 @@
 import dev.jeka.core.api.file.JkPathTree;
-import dev.jeka.core.api.system.JkLocator;
 import dev.jeka.core.api.system.JkLog;
 import dev.jeka.core.api.system.JkProcess;
 import dev.jeka.core.api.utils.JkUtilsJdk;
 import dev.jeka.core.tool.JkConstants;
 import dev.jeka.core.tool.JkDoc;
+import dev.jeka.core.tool.JkInject;
 import dev.jeka.core.tool.KBean;
+import dev.jeka.core.tool.builtins.tooling.maven.MavenKBean;
 
 import java.io.File;
 import java.nio.file.Path;
@@ -18,10 +19,18 @@ class Script extends KBean {
     @JkDoc("Maven arguments to pass when using 'mvn' method")
     private String mvnArgs = "";
 
+    @JkInject
+    private MavenKBean maven;
+
     @JkDoc("Build application and copy result in jeka-output in order to be run with '-p' option")
     public void build() {
         mvn("clean package -DskipTests -Pnative");
         copyToJekaOutput();
+    }
+
+    public void build2() {
+        cleanOutput();
+        maven.wrapPack();
     }
 
     @JkDoc("Execute Maven with ")
