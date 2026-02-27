@@ -17,7 +17,7 @@ Jeka comes to the rescue by providing full portability:
 
 ## Build and execute from anywhere
 
-You can build and run the project, without having JeKa or any JDK installed on the host machine.
+You can build and run the project, without having *JeKa*, *Maven* or any *JDK* installed on the host machine.
 
 At root of the project, just execute :
 ```shell
