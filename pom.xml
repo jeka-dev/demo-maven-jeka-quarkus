@@ -6,17 +6,17 @@
   <artifactId>demo-maven-jeka-quarkus</artifactId>
   <version>1.0</version>
   <properties>
-    <compiler-plugin.version>3.13.0</compiler-plugin.version>
+    <compiler-plugin.version>3.16.0</compiler-plugin.version>
     <docker-plugin.version>0.28.0</docker-plugin.version>
-    <doma.version>2.58.0</doma.version>
+    <doma.version>3.15.0</doma.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <quarkus-doma.version>0.0.9</quarkus-doma.version>
-    <quarkus-plugin.version>3.9.4</quarkus-plugin.version>
+    <quarkus-doma.version>1.0.9</quarkus-doma.version>
+    <quarkus-plugin.version>3.40.2</quarkus-plugin.version>
     <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
     <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
-    <quarkus.platform.version>3.9.4</quarkus.platform.version>
-    <surefire-plugin.version>3.2.5</surefire-plugin.version>
+    <quarkus.platform.version>3.40.2</quarkus.platform.version>
+    <surefire-plugin.version>3.6.1</surefire-plugin.version>
   </properties>
   <dependencyManagement>
     <dependencies>

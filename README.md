@@ -11,7 +11,7 @@ This project consists in a native web app, that provides a GUI for managing a ba
 Initially, users that wanted to build and run this project with *Maven*, had to fulfill some prerequisites, as installing a proper 
 Graalvm JDK and setting needed environment variables.
 
-Jeka comes to the rescue by providing full portability: 
+JeKa comes to the rescue by providing full portability: 
   - Installation of proper JDK if missing.
   - Set proper environment variables prior delegating the build to Maven
 
@@ -19,49 +19,49 @@ Jeka comes to the rescue by providing full portability:
 
 You can build and run the project, without having *JeKa*, *Maven* or any *JDK* installed on the host machine.
 
-At root of the project, just execute :
-```shell
-./jeka build
-```
-This will produce the native Quarkus image, ready to run.
-For this, JeKa :
-- Downloads needed JDK and JeKa version if needed
-- Sets the relevant environment variables
-- Executes the  `mvnw clean package -Pnative` *Maven* command.
-
-Once built, you can execute the native image by executing :
+At the root of the project, execute:
 ```shell
 ./jeka -p
 ```
-Any arguments passed after the `-p` option will be passed as program arguments.
+If the native executable is missing, JeKa builds it first, then runs it. The application listens on
+[http://localhost:8080](http://localhost:8080). Any arguments passed after the `-p` option are passed as program arguments.
 
-> [!TIP]
-> You can omit the build phase by directly executing `jeka -p`. If the native executable is not found, JeKa 
-> triggers a build to generate it.
+To build it, JeKa:
+- Downloads the needed JDK (GraalVM) and JeKa version, if needed
+- Sets the relevant environment variables (`JAVA_HOME`, `GRAALVM_HOME`, `PATH`)
+- Executes the `mvnw clean package -Dmaven.test.skip=true -Pnative` *Maven* command, and copies the result to *jeka-output*
+
+To only build the native executable:
+```shell
+./jeka maven: wrapPackage args="-Pnative"
+```
 
 ## Run the application without cloning the repo
 
-If you have JeKa installed on the host machine, the project can be executed transparently from its remote 
+If you have JeKa installed on the host machine, the project can be executed transparently from its remote
 Git repo (no need to clone manually).
 
 ```shell
-jeka -r https://github.com/jeka-dev/demo-maven-jeka-quarkus.git -p 
+jeka -r https://github.com/jeka-dev/demo-maven-jeka-quarkus.git -p
 ```
 
-This command can be run from any location on the host machine. The initial execution may take longer due to the 
-compilation process. However, following runs will be as fast as lightning.
+This command can be run from any location on the host machine. The first run takes longer because of the
+native compilation. The next runs start in milliseconds.
 
-## Deal with IDE
+## How it works
 
-The setup and build phases are coded in [jeka-src/Script.java file](jeka-src/Script.java).
-To edit it conveniently in Intellij, execute :
-```shell
-./jeka intellij: iml
-```
-
-> [!TIP]
-> You can add any public method you want here, they will be executable directly by executing  : `jeka myMethodName`.
+The whole configuration lies in [jeka.properties](jeka.properties):
+- `jeka.java.version` and `jeka.java.distrib=graalvm`: the JDK, with the `native-image` tool.
+- `jeka.program.build`: the command run by `-p` when the executable is missing.
 
 ## Run any Maven command
 
-Any Maven command can be wrapped by JeKa. Just execute commands as `jeka mvn mvnArgs="clean compile ..."`.
+Any Maven command can be wrapped by JeKa, with the same JDK and environment variables. For example:
+```shell
+./jeka maven: wrap args="test"
+```
+
+## Links
+
+- [maven KBean](https://jeka-dev.github.io/jeka/reference/kbeans-maven/)
+- [Source-runnable applications](https://jeka-dev.github.io/jeka/tutorials/source-runnable-apps/)
