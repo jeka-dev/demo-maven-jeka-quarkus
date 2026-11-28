@@ -31,6 +31,9 @@ To build it, JeKa:
 - Sets the relevant environment variables (`JAVA_HOME`, `GRAALVM_HOME`, `PATH`)
 - Executes the `mvnw clean package -Dmaven.test.skip=true -Pnative` *Maven* command, and copies the result to *jeka-output*
 
+Quarkus checks the GraalVM version. If it reports an out-of-date GraalVM, the one JeKa downloaded earlier is too old:
+delete *[USER HOME]/.jeka/cache/jdks/graalvm-25*, and JeKa downloads the current one on the next run.
+
 To only build the native executable:
 ```shell
 ./jeka maven: wrapPackage args="-Pnative"
